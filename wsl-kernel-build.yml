@@ -10,17 +10,18 @@ jobs:
         run: |
           wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-5.10.102.1.tar.gz
           tar xvzf ./linux-msft-wsl-5.10.102.1.tar.gz
-          cd ./linux-msft-wsl-5.10.102.1
           pwd
+          cd /linux-msft-wsl-5.10.102.1
+          
       - name: config 
         run: |
           cd ./linux-msft-wsl-5.10.102.1
-          mv .config ./linux-msft-wsl-5.10.102.1
+          mv .config /linux-msft-wsl-5.10.102.1
       - name: apt-get
         run: |
           sudo apt update
           sudo apt install build-essential flex bison libssl-dev libelf-dev dwarves
       - name: build
         run: |
-          cd ./linux-msft-wsl-5.10.102.1
+          cd /linux-msft-wsl-5.10.102.1
           make j8
