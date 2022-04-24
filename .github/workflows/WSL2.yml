@@ -18,7 +18,7 @@ jobs:
       - name: config 
         run: |
           cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
-          wget https://github.com/lurenjia534/WSL2_Kernel_Build_Action/blob/main/.config
+          wget https://raw.githubusercontent.com/lurenjia534/WSL2_Kernel_Build_Action/main/.config
           
       - name: apt-get
         run: |
