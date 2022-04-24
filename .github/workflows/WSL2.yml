@@ -17,6 +17,8 @@ jobs:
          # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: config 
         run: |
+          pwd
+          ls
           wget https://github.com/lurenjia534/WSL2_Kernel_Build_Action/blob/main/Kernel.config
           mv kernel.config .config
           mv .config WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
