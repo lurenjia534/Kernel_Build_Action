@@ -10,11 +10,11 @@ jobs:
         run: |
           wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-5.10.102.1.tar.gz
           tar xvzf ./linux-msft-wsl-5.10.102.1.tar.gz
-     # - name: SSH
-       # uses: P3TERX/ssh2actions@main
-        #env:
-         # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-         # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: SSH
+        uses: P3TERX/ssh2actions@main
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: config 
         run: |
           mv .config WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
