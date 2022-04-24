@@ -27,4 +27,4 @@ jobs:
       - name: build
         run: |
           cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
-          make j8
+          make -j8
