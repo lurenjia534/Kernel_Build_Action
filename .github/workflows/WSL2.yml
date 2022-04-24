@@ -17,8 +17,9 @@ jobs:
          # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: config 
         run: |
-          cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
           mv .config WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
+          cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
+          
       - name: apt-get
         run: |
           sudo apt update
