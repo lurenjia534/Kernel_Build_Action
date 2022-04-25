@@ -11,11 +11,6 @@ jobs:
         run: |
           wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-5.10.102.1.tar.gz
           tar xvzf ./linux-msft-wsl-5.10.102.1.tar.gz
-     # - name: SSH
-       # uses: P3TERX/ssh2actions@main
-       # env:
-         # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-         # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: config 
         run: |
           cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/
@@ -32,5 +27,5 @@ jobs:
       - name: updata
         uses: actions/upload-artifact@v3
         with: 
-          name: my-artifact
+          name: kernel
           path: WSL2-Linux-Kernel-linux-msft-wsl-5.10.102.1/arch/x86/boot/
