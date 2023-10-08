@@ -2,11 +2,25 @@ name: Build Linux Kernel 5.15.x
 on: [workflow_dispatch]
 
 jobs:
-    my-jobs:
-        runs-on: ubuntu-20.04
+  my-jobs:
+    runs-on: ubuntu-20.04
 
-        steps:
+    steps:
+      - name: apt-get
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
-         
-    
+      - name: wget kernel 5.15.x source code
+        run: |
+          wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.134.tar.xz
 
+      - name: Extract Linux Kernel Source
+        run: |
+          tar -xvf linux-5.15.134.tar.xz
+        
+      - name: Build kenrle
+        run: |
+            cd linux-5.15.134
+            make defconfig
+            make -j$(nproc)
