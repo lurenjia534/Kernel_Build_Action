@@ -12,11 +12,11 @@ jobs:
                 sudo apt-get upgrade -y
                 sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev libelf-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
-            - name: Clone android 5.10-lts kernel source
+            - name: Clone android12-5.10-lts kernel source
               run: |
                 git clone https://github.com/aosp-mirror/kernel_common.git -b android12-5.10-lts
 
-            - name: Build Android 5.10-lts kernel
+            - name: Build Android12-5.10-lts kernel
               run: |
                 cd kernel_common
                 make ARCH=arm64 defconfig
