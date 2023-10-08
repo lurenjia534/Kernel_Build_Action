@@ -1,4 +1,4 @@
-name: Wsl2-Kernel-Build
+name: Wsl2 Kernel Build
 on: [workflow_dispatch]
 
 jobs:
