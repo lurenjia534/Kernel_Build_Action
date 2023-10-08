@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: 5.10.x kernel upgrader
-          path: linux-5.10.197/arch/x86/boot/
+          path: linux-5.10.197/arch/x86/boot/bzImage
