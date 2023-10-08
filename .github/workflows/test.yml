@@ -1,4 +1,4 @@
-name: Build Linux Kernel 5.15.x
+name: Build Linux Kernel for test
 on: [workflow_dispatch]
 
 jobs:
