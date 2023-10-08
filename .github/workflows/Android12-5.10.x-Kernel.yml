@@ -1,0 +1,23 @@
+name: Build Android 12-5.10.x Kernel
+on: [workflow_dispatch]
+
+jobs:
+    myjobs:
+        runs-on: ubuntu-22.04
+
+        steps:
+            - name: apt-get update && apt-get upgrade
+              run: |
+                sudo apt-get update
+                sudo apt-get upgrade -y
+                sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev libelf-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+            - name: Clone android 5.10-lts kernel source
+              run: |
+                git clone https://github.com/aosp-mirror/kernel_common.git -b android12-5.10-lts
+
+            - name: Build Android 5.10-lts kernel
+              run: |
+                cd kernel_common
+                make ARCH=arm64 defconfig
+                make -j$(nproc) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- CC=aarch64-linux-gnu-gcc                
