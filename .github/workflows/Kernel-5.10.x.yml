@@ -1,0 +1,32 @@
+name: Build Linux Kernel 5.10.x
+on: [workflow_dispatch]
+
+jobs:
+  my-jobs:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: apt-get
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libncurses-dev bison flex libssl-dev libelf-dev
+
+      - name: wget kernel 5.10.x source code
+        run: |
+          wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.197.tar.xz
+
+      - name: Extract Linux Kernel Source
+        run: |
+          tar -xvf linux-5.10.197.tar.xz
+
+      - name: Build kenrle
+        run: |
+          cd linux-5.10.197
+          make defconfig
+          make -j$(nproc)
+
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: 5.10.x kernel upgrader
+          path: linux-5.10.197/arch/x86/boot/
