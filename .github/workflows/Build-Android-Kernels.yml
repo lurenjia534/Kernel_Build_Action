@@ -35,5 +35,5 @@ jobs:
       - name: Upload Kernel
         uses: actions/upload-artifact@v2
         with:
-          name: kernel
+          name: kernel-${{ matrix.android_version }}
           path: kernel_common/arch/arm64/boot/
