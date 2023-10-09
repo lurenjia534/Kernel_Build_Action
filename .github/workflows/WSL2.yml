@@ -26,7 +26,7 @@ jobs:
       - name: build
         run: |
           cd WSL2-Linux-Kernel
-          make -j8
+          make -j$(nproc) KCONFIG_CONFIG=.config
 
       - name: upload
         uses: actions/upload-artifact@v3
