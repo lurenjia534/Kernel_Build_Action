@@ -1,0 +1,30 @@
+name: Build Pixel 6 Kernel
+
+on: [workflow_dispatch]
+
+jobs:
+  myjobs:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: apt-get
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+
+      - name: set repo
+        run: |
+          mkdir -p ~/bin
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+      - name: repo sync
+        run: |
+          mkdir android-kernel
+          cd android-kernel
+          echo yes | repo init -u https://android.googlesource.com/kernel/manifest -b android-gs-raviole-5.10-android14
+          repo sync -j$(nproc --all)
+
+      - name: build kernel
+        run: |
+          cd android-kernel
+          tools/bazel build //common:kernel_aarch64_dist
