@@ -19,7 +19,11 @@ jobs:
               run: node --version
             
             - name: git clone project
-              run: sudo apt update && && sudo apt install git && git clone https://github.com/CareyWang/sub-web.git
+              run: |
+                sudo apt update
+                sudo apt upgrade
+                sudo apt install git
+                git clone https://github.com/CareyWang/sub-web.git
             
             - name: install dependencies
               run: cd sub-web && yarn install
