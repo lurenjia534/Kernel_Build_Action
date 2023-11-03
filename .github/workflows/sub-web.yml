@@ -1,0 +1,19 @@
+name: sub-web
+
+on: [workflow_dispatch]
+
+jobs:
+    myjobs:
+        runs-on: ubuntu-20.04
+
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: lts/*
+
+            - name: check yarn version
+              run: yarn --version
+              
+            - name: check node version
+              run: node --version
