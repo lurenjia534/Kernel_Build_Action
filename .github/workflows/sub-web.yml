@@ -10,7 +10,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
-                  node-version: lts/*
+                  node-version: 16.x
 
             - name: check yarn version
               run: yarn --version
@@ -26,10 +26,14 @@ jobs:
                 git clone https://github.com/CareyWang/sub-web.git
             
             - name: install dependencies
-              run: cd sub-web && yarn install
+              run: |
+                cd sub-web
+                yarn install
 
             - name: build project
-              run: cd sub-web && yarn build
+              run: |
+                cd sub-web
+                yarn build
 
             - name: upload project
               uses: actions/upload-artifact@v2
