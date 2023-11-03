@@ -17,3 +17,18 @@ jobs:
               
             - name: check node version
               run: node --version
+            
+            - name: git clone project
+              run: sudo apt update && && sudo apt install git && git clone https://github.com/CareyWang/sub-web.git
+            
+            - name: install dependencies
+              run: cd sub-web && yarn install
+
+            - name: build project
+              run: cd sub-web && yarn build
+
+            - name: upload project
+              uses: actions/upload-artifact@v2
+              with:
+                  name: sub-web
+                  path: sub-web/dist
