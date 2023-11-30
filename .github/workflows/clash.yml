@@ -5,7 +5,6 @@ on:
     branches: [Alpha]
   pull_request:
     branches: [Alpha]
-
   workflow_dispatch:
 
 jobs:
@@ -40,7 +39,7 @@ jobs:
           GOOS: android
           GOARCH: arm64
           CGO_ENABLED: 1
-          CC: $ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+          CC: /home/runner/work/_temp/_github_home/android-ndk-r21e/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
         run: |
           go build -o libclash.so -buildmode=c-shared ./path/to/your/source # 替换为您的源代码路径
 
