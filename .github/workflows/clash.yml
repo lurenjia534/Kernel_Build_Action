@@ -2,9 +2,9 @@ name: Build libclash.so for Android
 
 on:
   push:
-    branches: [Alpha]
+    branches: [main]
   pull_request:
-    branches: [Alpha]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
           GOOS: android
           GOARCH: arm64
           CGO_ENABLED: 1
-          CC: ${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+          CC: /home/runner/work/Kernel_Build_Action/Kernel_Build_Action/android-ndk-r21e/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
         run: |
           go build -o libclash.so -buildmode=c-shared .
 
