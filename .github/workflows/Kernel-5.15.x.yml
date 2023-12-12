@@ -18,15 +18,15 @@ jobs:
       - name: Extract Linux Kernel Source
         run: |
           tar -xvf linux-5.15.134.tar.xz
-        
+
       - name: Build kenrle
         run: |
-            cd linux-5.15.134
-            make defconfig
-            make -j$(nproc)
+          cd linux-5.15.134
+          make defconfig
+          make -j$(nproc)
 
       - name: upload
-        uses: actions/upload-artifact@v3
-        with: 
+        uses: actions/upload-artifact@v3.1.3
+        with:
           name: 5.15.x kernel upgrader
           path: linux-5.15.134/arch/x86/boot/bzImage

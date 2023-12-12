@@ -26,7 +26,7 @@ jobs:
           make -j$(nproc)
 
       - name: upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: 5.10.x kernel upgrader
           path: linux-5.10.197/arch/x86/boot/bzImage
