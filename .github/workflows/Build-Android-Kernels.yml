@@ -13,6 +13,7 @@ jobs:
             "android13-5.10-lts",
             "android13-5.15-lts",
             "android14-5.15-lts",
+            "android14-6.1-lts"
           ]
     steps:
       - name: Common setup
